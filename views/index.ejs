@@ -1,0 +1,40 @@
+<%- include('partials/header') %>
+
+<!--ui main text container gives centered container-->
+<div class="ui main text container">
+    <!--TITLE: RESTful Blog App-->
+    <div class="ui huge header">Welcome to Afzal's blog</div>
+    <!--segment gives a line/ box-->
+    <div class="ui top attatched segment">
+        <!--we get an automatic divider put between them-->
+        <div class="ui divided items">
+            <% for(i = 0; i < blogs.length; i++){ %>
+                <div class="item">
+                    <div class="image">
+                        <!--help constrain the size of the images-->
+                        <img src="<%= blogs[i].image %>">
+                    </div>
+                    <div class="content">
+                        <a class="header" href="/blogs/<%= blogs[i]._id %>"><%= blogs[i].title %></a>
+                        <!--met is just a place for us to put information about a particular item-->
+                        <div class="met">
+                            <span><%= blogs[i].created.toDateString() %></span>
+                        </div>
+                        <div class="description">
+                            <!--substring limits the amount of characters to be shown on index. substring(0, 100) will show the first to the 100th character only-->
+                            <p><%- blogs[i].body.substring(0, 100) %>...</p>
+                        </div>
+                        <div class="extra">
+                            <a class="ui floated basic violet button" href="/blogs/<%= blogs[i]._id %>"> <!--id is a variable through each blog-->
+                                Read More
+                                <i class="right chevron icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            <% } %>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>

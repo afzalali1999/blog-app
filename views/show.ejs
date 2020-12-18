@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>">
+            <div class="content">
+                <!--toDateString() translates the date into a better and human-readable format-->
+                <span><%= blog.created.toDateString() %></span>
+            </div>
+            <div class="description">
+                <!--The dash will take whatever blog.body returned and evaluate that by running it as code rather than just displaying the string-->
+                <p><%- blog.body %></p> 
+            </div>
+            <!--edit button needs to be an anchor tag because we're not sending a form or a POST request. Just a GET request-->
+            <a class="ui orange basic button" href="/blogs/<%= blog._id %>/edit">Edit</a>
+            <!--The Edit and Delete buttons are on different lines and that is bacause Forms by default are not inline elements-->
+            <!--blog is what we're passing in when we find it in the database using findByID()-->
+            <form id="delete" action="/blogs/<%= blog._id %>?_method=DELETE" method="POST"> 
+                <button class="ui red basic button">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<%- include('partials/footer') %>
