@@ -4,7 +4,7 @@
   "description": "- This is a node-js express blog app  \r - Includes all CRUD (Create, Read, Update, Delete) operations.\r - Allows user to create, read, update, and delete a blog post. \r - It implements the RESTful api pattern.\r - Uses MongoDB with the help of the mongoose framework to store, retreive, update, and delete a blog post.\r - Uses ejs template to display data",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",
